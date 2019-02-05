@@ -1,0 +1,107 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+  no-trivial-tests: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: target/classes
+      file: bsh/BSHTypedVariableDeclaration.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHTypedVariableDeclaration.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHTryStatement.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHTryStatement.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHAssignment.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHAssignment.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHLiteral.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHLiteral.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHPrimarySuffix.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHPrimarySuffix.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHImportDeclaration.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHImportDeclaration.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHEnhancedForStatement.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHEnhancedForStatement.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHSwitchStatement.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHSwitchStatement.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHForStatement.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHForStatement.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHBinaryExpression.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHBinaryExpression.java
+  - target:
+    - dir: target/classes
+      file: bsh/BshArray.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BshArray.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHArrayInitializer.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHArrayInitializer.java
+  - target:
+    - dir: target/classes
+      file: bsh/BshMethod.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BshMethod.java
+  - target:
+    - dir: target/classes
+      file: bsh/BSHBlock.class
+      sourceDir: src/main/java
+      sourceFile: bsh/BSHBlock.java
+    # Child of BSHBlock.class
+    - dir: target/classes
+      file: bsh/util/ReferenceCache.class
+      sourceDir: src/main/java
+      sourceFile: bsh/util/ReferenceCache.java
+  - target:
+    - dir: target/classes
+      file: bsh/Operators.class
+      sourceDir: src/main/java
+      sourceFile: bsh/Operators.java
